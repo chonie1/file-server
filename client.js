@@ -26,10 +26,10 @@ conn.on('connect', () => {
 
 conn.on('data', (data) => {
   console.log(`${data}`);
-  if(data === `Could not find ${fileName}`) {
+  if (data === `Could not find ${fileName}`) {
     conn.end(()=>{
-      console.log('Restart your connection to try again!')
-    })
+      console.log('Restart your connection to try again!');
+    });
   }
 
 });
