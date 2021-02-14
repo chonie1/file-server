@@ -26,8 +26,14 @@ conn.on('connect', () => {
 
 conn.on('data', (data) => {
   console.log(`${data}`);
+  if(data === `Could not find ${fileName}`) {
+    conn.end(()=>{
+      console.log('Restart your connection to try again!')
+    })
+  }
+
 });
 
-conn.on('end',()=>{
-  conn.write('Server disconnected!');
+conn.on('error',(error)=>{
+  conn.write(`There was an error: ${error.message}`);
 });

@@ -1,6 +1,7 @@
 const net = require('net');
 const server = net.createServer();
 const fs = require('fs');
+const { connect } = require('http2');
 
 const PORT = 8000;
 
@@ -42,7 +43,7 @@ server.on('connection', (client) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`Server listening on port ${8000}!`);
+  console.log(`Server listening on port ${PORT}!`);
 });
 
 
